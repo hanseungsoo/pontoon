@@ -1,0 +1,55 @@
+# This default profile is used when running a single instance completely standalone:
+spring:
+  profiles: default
+  thymeleaf:
+          prefix : classpath:/thymeleafTemplates/
+          suffix : .html
+          cache : false
+  freemarker:
+      template-loader-path: classpath:/templates/
+      prefer-file-system-access: false
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hanseungsoo/InterfaceConfig.git
+          ignoreLocalSshSettings: true
+          privateKey:
+            -----BEGIN RSA PRIVATE KEY-----
+            MIIEpAIBAAKCAQEA23wjRbJGkx/xFsSUzjFQzrCoGFI7b60F6cD07pG26Rw18Zy9
+            zOFngxgTlFzOzQtIzJd/bjw2QYwD2dHO0jOwD4lSKwFhf2b/4w3F4QrCEjWC14dr
+            DlJ4qvL/Nr3grh1zjSiK4M/bmSRzCtDVQwqgtHeVsFEwvaipMD2ak8PNDXu9wS2j
+            5vsKN9bh/7Fmqmgdebj46xxMcEhpqVIDizsWQA2Qc21Lp8HbRwJa5sF+nCRGa7Bw
+            Orx+rGQIIbuPXdx0NqnW09gBnEl+59+94/mCnBlbxsMCcWLuCpLDoR+ZBEYZm0iM
+            e9G98jxtri+9B2Zo/YRZJ9+m895MBBYp+h4VnQIDAQABAoIBAAr6ZJFB34HQYTCw
+            WHkPwmj0MRQ2WL63Osp8WkPsieeS/6e8HUo4JANMmv4avkVHQTbqhPcwj84rgK3O
+            brfY2f+M8M0x3nyO3FGxCKq+7QIYJxk8rsAio+J5EQbd7HUJCBSRaJDiFKvOROrP
+            kzstNuiP6q7NANEbtIqzKh4l9wWriQSVEgNmXAXqu4tu2Za/VV/e12ghZoqKCmR8
+            zggZ3mdRQ7SbxMTk5pzRb9fAsHIlHNAkiOyLjBRuuLYtDdit7qmnvKWkmUMBJMJ5
+            KhwJjWA0RX/jWguJCIGpmSzSUuOFS9kCy83lS49Pc5UmwMmE1wCu3sgCThD80t5r
+            HfxlN8kCgYEA/4394B+kFZhLiRY4YIGrxVNARQT1ET+AFGFkQoBHVCZ7gfuy02aE
+            F8NB1E1MtiO4897hkmhenjguNXeNHxmVK3xZackIdY7jHphNaBlgh22mV1Elzair
+            OtshU5tn9pr+BU3San5R8hBixsMYaA1XTuGhgrRLWUm/QBqPDiOxKzMCgYEA294N
+            +wjBXjAerd4yMFzVA2ZWZZIO+AhIfqF9aTESLSfPXEL57sDgZiIgsF2/vXjEHxCH
+            jywkCWDHnh0oWGPYwD9b9ephrEJRTwDbO00LhC56Ebkt2I+ffJ6k6nHXhTchFJdK
+            VcrOj2NpR5f4aRq7f4ProFcRQHGCjXSKW3I2O+8CgYEAz4uY+LGZyDQEfJRAOxh0
+            0XAYTTWGdniU43hpPZ0C0PPj8J/jDs8+TjI0v1/8Ahym8+A6YHZFCchktuWeBfj3
+            7fYyg7hSF29xQwK8MuQRQkuqAVYVFp56WfVnbohS+bPMw6/9SKHImYf3QKdnpfHX
+            y2dxjT4xx5UeLsijD/+qvoMCgYAPd0VAfVMszvG5hUG+iSkqvg4hwu5uoBaJYc6y
+            kZMXvg8mDEgMdWDTjl8CSPXt3ArfrIf8mDxItJgWFTL7VLqwe0R6vev09A1II2VI
+            fJjsyWAo0v/YlfHAEGDFZRCl/ETFcAb4lfWFvJZxRM1ih1DdHWh7tOQvxkxKqwH4
+            gMYz3QKBgQDWK18VENvQpabaG7OyOFEwz/9eConkC4owsF3B52ff2bErUgq9O2Uh
+            AjyHtImP4Yir/4plkTcNi9gT9orWSvDdB6NUusySkpdJImy5wrWmUHmmmP4G7zi/
+            5kw8SIVJtXNaP1hspkBHje/j7M+UcRy+ENIhj+J9IvLwf4FdNgN/YA==
+            -----END RSA PRIVATE KEY-----
+        prefix: /configration-registry
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
